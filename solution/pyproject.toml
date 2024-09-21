@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "dius-shopping"
+version = "0.1.0"
+description = "Solution to the shopping coding challenge created by DIUS for DataRock."
+authors = ["Richa <richa_lad@outlook.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
