@@ -1,0 +1,16 @@
+FreeItemDeals:
+- name: FreeVGAWithMacBook
+  sku: mbp
+  item_sku: vga
+  purchase_number_required: 1
+  n_free_items: 1 
+BulkDiscountDeals:
+- name: iPadBulkDiscount
+  sku: ipd
+  purchase_number_required: 4
+  new_item_price: 499.99
+NForMDeals:
+- name: Apple3for2
+  sku: atv
+  purchase_number_required: 3
+  number_to_pay_for: 2
