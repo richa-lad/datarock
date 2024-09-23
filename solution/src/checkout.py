@@ -27,7 +27,9 @@ class Checkout:
         """
         item_attrs = self.catalogue.get(item_sku)
         if item_attrs is None:
-            raise ItemNotInCatalogue(f"Item with sku {item_sku} not found in catalogue.")
+            raise ItemNotInCatalogue(
+                f"Item with sku {item_sku} not found in catalogue."
+            )
         item = Item(**item_attrs)
         self.scanned_items.append(item)
 

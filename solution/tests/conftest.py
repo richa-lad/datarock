@@ -1,30 +1,18 @@
 import pytest
 import yaml
-from src.pricing_rules import (
-    FreeItemDeal,
-    BulkDiscountDeal,
-    NForMDeal
-)
+from src.pricing_rules import FreeItemDeal, BulkDiscountDeal, NForMDeal
 from src.models import Item
+
 
 @pytest.fixture
 def mock_items():
-    items = [        
-        Item(
-            sku="",
-            name="", 
-            price=10.00,
-            currency=""
-        ), 
-        Item(
-            sku="",
-            name="", 
-            price=15.00,
-            currency=""
-        )
+    items = [
+        Item(sku="", name="", price=10.00, currency=""),
+        Item(sku="", name="", price=15.00, currency=""),
     ]
 
     return items
+
 
 @pytest.fixture
 def pricing_rules():
