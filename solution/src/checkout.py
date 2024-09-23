@@ -1,4 +1,5 @@
 from typing import List, Dict
+from src.exceptions import ItemNotInCatalogue
 from src.models import PricingRule, Item
 import logging
 
@@ -25,6 +26,8 @@ class Checkout:
             item_sku (str): Unique identifier of the item.
         """
         item_attrs = self.catalogue.get(item_sku)
+        if item_attrs is None:
+            raise ItemNotInCatalogue(f"Item with sku {item_sku} not found in catalogue.")
         item = Item(**item_attrs)
         self.scanned_items.append(item)
 

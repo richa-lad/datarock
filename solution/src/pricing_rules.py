@@ -7,6 +7,15 @@ logger = logging.getLogger(__name__)
 
 
 def count_matching_items(items: List[Item], sku_to_match: str):
+    """Counts the number of items in the list that match the provided sku
+
+    Args:
+        items (List[Item]): Items to check
+        sku_to_match (str): Sku to check for
+
+    Returns:
+        int: number of matching items
+    """
     matching_items = [i for i in items if i.sku == sku_to_match]
     n_matching_items = len(matching_items)
 
@@ -14,8 +23,8 @@ def count_matching_items(items: List[Item], sku_to_match: str):
 
 
 class NForMDeal:
-    """Logic to apply the N for M deal e.g. 3 for 2.
-    """
+    """Logic to apply the N for M deal e.g. 3 for 2."""
+
     def __init__(
         self,
         *,
@@ -57,8 +66,8 @@ class NForMDeal:
 
 
 class BulkDiscountDeal:
-    """Logic for the Bulk Discount Deal e.g. buy more than 4 of an item and have the price reduced for all of these items.
-    """
+    """Logic for the Bulk Discount Deal e.g. buy more than 4 of an item and have the price reduced for all of these items."""
+
     def __init__(
         self,
         *,
@@ -102,8 +111,8 @@ class BulkDiscountDeal:
 
 
 class FreeItemDeal:
-    """Logic for the Free Item Deal e.g. buy an item and receive a free item with it.
-    """
+    """Logic for the Free Item Deal e.g. buy an item and receive a free item with it."""
+
     def __init__(
         self,
         *,

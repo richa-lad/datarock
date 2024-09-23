@@ -1,0 +1,2 @@
+class ItemNotInCatalogue(Exception):
+    pass
