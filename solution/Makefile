@@ -3,3 +3,6 @@ test:
 
 coverage:
 	poetry run coverage
+
+format:
+	poetry run black .
