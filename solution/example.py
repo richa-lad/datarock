@@ -1,11 +1,18 @@
+import json
+import logging
+
 import yaml
+
 from pricing_rules import (
     BulkDiscountDeal,
     NForMDeal,
     FreeItemDeal
 )
-
 from checkout import Checkout
+
+logging.basicConfig(
+    level=logging.INFO
+)
 
 if __name__ == "__main__":
     # load pricing rules
@@ -49,7 +56,13 @@ if __name__ == "__main__":
     )
 
     # scan things
-    items_to_scan = ["atv", "ipd", "ipd", "atv", "ipd", "ipd", "ipd"]
+    items_to_scan = input("Enter the skus of the items you would like to be scanned, separated by a comma: ")
+    items_to_scan = items_to_scan.replace(" ", "")
+    items_to_scan = items_to_scan.split(",")
     for sku in items_to_scan:
         co.scan(sku)
-    print(co.total())
+    print(f"Total: ${co.total()}")
+
+    view_receipt = input("Do you want to see an itemized receipt with discounts applied? (y/n) ")
+    if view_receipt.lower() == "y":
+        print(json.dumps([i.model_dump() for i in co.receipt()], indent=2))

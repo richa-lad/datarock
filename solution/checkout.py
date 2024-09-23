@@ -20,7 +20,6 @@ class Checkout:
         self.items_with_deals = self.scanned_items.copy()
         for rule in self.pricing_rules:
             self.items_with_deals = rule.apply(self.items_with_deals)
-        breakpoint()
         return sum(item.price for item in self.items_with_deals)
 
     def receipt(self):

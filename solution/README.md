@@ -24,7 +24,18 @@ poetry show
 ```
 All installed requirements will be returned in blue. If any are not installed they will appear as red. Try running `poetry install` again if this happens, or installing the missing packages individually.
 
-## Running the App
+## Running the Example script
+From the command line, move to the `/solution` folder:
+```
+cd solution
+```
+
+Then run:
+```
+poetry run python example.py
+```
+
+Follow the instructions to enter the skus of items that need scanning and hit enter to print the total.
 
 ## Running Tests
 - To run all tests, run:
