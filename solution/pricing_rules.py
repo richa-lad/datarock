@@ -14,7 +14,8 @@ def count_matching_items(items: List[Item], sku_to_match: str):
 
 
 class NForMDeal:
-
+    """Logic to apply the N for M deal e.g. 3 for 2.
+    """
     def __init__(
         self,
         *,
@@ -29,6 +30,14 @@ class NForMDeal:
         self.number_to_pay_for = number_to_pay_for
 
     def apply(self, items: List[Item]) -> List[Item]:
+        """Applies the logic for the N for M Deal
+
+        Args:
+            items (List[Item]): All scanned items
+
+        Returns:
+            List[Item]: All scanned items with prices updated for any items where this deal applies.
+        """
         # return a list of items with the price updated to 0 if the rule applies
         n_free_items = 0
         self.n_matching_items = count_matching_items(items=items, sku_to_match=self.sku)
@@ -48,7 +57,8 @@ class NForMDeal:
 
 
 class BulkDiscountDeal:
-
+    """Logic for the Bulk Discount Deal e.g. buy more than 4 of an item and have the price reduced for all of these items.
+    """
     def __init__(
         self,
         *,
@@ -63,6 +73,14 @@ class BulkDiscountDeal:
         self.new_item_price = new_item_price
 
     def apply(self, items: List[Item]) -> List[Item]:
+        """Applies the logic for the Bulk Discount deal.
+
+        Args:
+            items (List[Item]): All scanned items
+
+        Returns:
+            List[Item]: All scanned items with prices updated for any items where this deal applies.
+        """
         # return a list of items with the price updated to 0 if the rule applies
         n_repriced_items = 0
         self.n_matching_items = count_matching_items(items=items, sku_to_match=self.sku)
@@ -84,7 +102,8 @@ class BulkDiscountDeal:
 
 
 class FreeItemDeal:
-
+    """Logic for the Free Item Deal e.g. buy an item and receive a free item with it.
+    """
     def __init__(
         self,
         *,
@@ -101,6 +120,14 @@ class FreeItemDeal:
         self.n_free_items = n_free_items
 
     def apply(self, items: List[Item]) -> List[Item]:
+        """Applies the logic for the Free Item Deal.
+
+        Args:
+            items (List[Item]): All scanned items
+
+        Returns:
+            List[Item]: All scanned items with prices updated for any items where this deal applies.
+        """
         # add the free item(s) with price = 0
         self.n_matching_items = count_matching_items(items=items, sku_to_match=self.sku)
         if self.n_matching_items >= self.purchase_number_required:

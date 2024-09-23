@@ -9,6 +9,15 @@ class Item(BaseModel):
     currency: str
 
     def update(self, attr_to_update: str, new_value: Any):
+        """Returns a new version of the item with the relevant field updated.
+
+        Args:
+            attr_to_update (str): The field to update
+            new_value (Any): The updated value of the field.
+
+        Returns:
+            Item: A new version of the Item.
+        """
         current = self.model_dump()
         current[attr_to_update] = new_value
 
@@ -20,7 +29,5 @@ class Item(BaseModel):
 class PricingRule(Protocol):
 
     def __init__(self, *args, **kwargs) -> None: ...
-
-    def qualifies(self, items: List[Item]) -> bool: ...
 
     def apply(self, items: List[Item]) -> List[Item]: ...
