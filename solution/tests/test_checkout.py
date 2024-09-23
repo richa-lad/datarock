@@ -3,7 +3,7 @@ from pydantic import ValidationError
 from src.exceptions import ItemNotInCatalogue
 from src.checkout import Checkout
 from src.models import PricingRule, Item
-from src.pricing_rules import count_matching_items
+from src.pricing_rules import count_matching_items, update_items
 from typing import Dict, List
 
 
@@ -71,3 +71,16 @@ def test_count_matching_items(mock_items: List[Item]):
     count = count_matching_items(items=mock_items, sku_to_match="abc")
 
     assert count == 0
+
+
+# test 7 - check update items updates correct items
+def test_check_update_items(mock_items: List[Item]):
+    updated_items = update_items(
+        items=mock_items, sku="to-update", attr_to_update="price", new_value=10.00, n=1
+    )
+
+    assert updated_items == [
+        Item(sku="", name="", price=10.00, currency=""),
+        Item(sku="", name="", price=15.00, currency=""),
+        Item(sku="to-update", name="", price=10.00, currency=""),
+    ]

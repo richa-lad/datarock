@@ -9,6 +9,7 @@ def mock_items():
     items = [
         Item(sku="", name="", price=10.00, currency=""),
         Item(sku="", name="", price=15.00, currency=""),
+        Item(sku="to-update", name="", price=0.00, currency=""),
     ]
 
     return items

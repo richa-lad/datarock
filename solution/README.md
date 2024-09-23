@@ -38,7 +38,7 @@ poetry run python example.py
 Follow the instructions to enter the skus of items that need scanning and hit enter to print the total.
 
 ## Running Tests
-- To run all tests, run:
+- To run all tests, from the `solution` folder, run:
 ```
 make test
 ```
