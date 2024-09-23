@@ -1,5 +1,5 @@
 from typing import List, Dict
-from models import PricingRule, Item
+from src.models import PricingRule, Item
 import logging
 
 logger = logging.getLogger(__name__)

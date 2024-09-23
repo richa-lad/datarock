@@ -1,7 +1,7 @@
 import logging
 from typing import List
 
-from models import Item
+from src.models import Item
 
 logger = logging.getLogger(__name__)
 
